@@ -12,7 +12,18 @@ class CreateClaimsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('claims', function(Blueprint $table) {
+
+			$table->increments('id');
+			$table->timestamps();
+
+			$table->integer('job_id');
+			$table->integer('lead_id');
+			$table->enum('status', array('open', 'pending', 'closed'));
+
+			$table->unique(array('job_id', 'lead_id'));
+            $table->index('status');
+		});
 	}
 
 	/**
@@ -22,7 +33,7 @@ class CreateClaimsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('claims');
 	}
 
 }

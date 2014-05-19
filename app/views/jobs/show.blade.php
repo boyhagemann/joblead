@@ -3,10 +3,22 @@
 @section('content')
 
 <article>
-	<h1>{{ $job->name }}</h1>
+    <header>
+        <h1>{{ $job->name }}</h1>        
+    </header>
+    {{ $job->body }}
 </article>
 
-<div>
-	<a href="{{ URL::route('leads.create', $job->slug) }}" class="btn btn-xl btn-primary">I know someone!</a>
-</div>
+<hr>
+
+<section>
+	<a href="{{ URL::route('leads.create', $job->slug) }}" class="btn btn-lg btn-primary">I know someone!</a>
+</section>
+@stop
+
+
+@section('sidebar')
+<section>
+	<a href="{{ URL::route('leads.create', $job->slug) }}" class="btn btn-lg btn-primary">I know someone!</a>
+</section>
 @stop

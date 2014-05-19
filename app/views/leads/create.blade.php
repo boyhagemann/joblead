@@ -4,7 +4,7 @@
 
 <div class="col-sm-4">
 
-	{{ Form::open(array('route' => array('leads.store', $job->id))) }}
+	{{ Form::open(array('route' => array('leads.store', $job->slug))) }}
 
 		<div class="form-group">
 			<label for="name">Name</label>

@@ -15,3 +15,18 @@ Route::get('/', function()
 {
 	return 'test';
 });
+
+Route::model('jobs', 'Job');
+Route::model('leads', 'Lead');
+
+Route::resource('jobs', 'JobController');
+
+Route::resource('leads', 'LeadController');
+Route::get('jobs/{jobs}/leads/create', array(
+	'as' => 'leads.create',
+	'uses' => 'LeadController@create'
+));
+Route::post('jobs/{jobs}/leads', array(
+	'as' => 'leads.store',
+	'uses' => 'LeadController@store'
+));

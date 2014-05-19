@@ -7,7 +7,7 @@
 	<body>
 
 	<div id="content">
-		@yield('content');
+		@yield('content')
 	</div>
 
 	<div id="panel">

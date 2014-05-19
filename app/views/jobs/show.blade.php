@@ -7,6 +7,6 @@
 </article>
 
 <div>
-	<a href="{{ URL::route('leads.create', $job->id) }}" class="btn btn-xl btn-primary">I know someone!</a>
+	<a href="{{ URL::route('leads.create', $job->slug) }}" class="btn btn-xl btn-primary">I know someone!</a>
 </div>
 @stop

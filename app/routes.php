@@ -16,7 +16,10 @@ Route::get('/', function()
 	return 'test';
 });
 
-Route::model('jobs', 'Job');
+Route::bind('jobs', function($slug) {
+	return Job::where('slug', $slug)->firstOrFail();
+});
+
 Route::model('leads', 'Lead');
 
 Route::resource('jobs', 'JobController');

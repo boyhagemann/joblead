@@ -4,7 +4,7 @@
 
 @foreach($jobs as $job)
 <div>
-	<a href="{{ URL::route('jobs.show', $job->id) }}">{{ $job->name }}</a>
+	<a href="{{ URL::route('jobs.show', $job->slug) }}">{{ $job->name }}</a>
 </div>
 @endforeach
 

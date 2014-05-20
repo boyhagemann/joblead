@@ -33,3 +33,31 @@ Route::post('jobs/{jobs}/leads', array(
 	'as' => 'leads.store',
 	'uses' => 'LeadController@store'
 ));
+
+
+Route::get('account/login', array(
+	'as' => 'account.login',
+	'uses' => 'AccountController@login'
+));
+Route::post('account/login', array(
+	'as' => 'account.auth',
+	'uses' => 'AccountController@auth'
+));
+Route::get('account/logout', array(
+	'as' => 'account.logout',
+	'uses' => 'AccountController@logout'
+));
+Route::resource('account', 'AccountController');
+Route::get('dashboard', array(
+	'as' => 'dashboard',
+	'uses' => 'AccountController@dashboard'
+));
+
+
+
+Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
+
+	Route::resource('jobs', 'JobController');
+	Route::resource('leads', 'LeadController');
+
+});

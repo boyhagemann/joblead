@@ -19,9 +19,11 @@ class CreateAccountsTable extends Migration {
 
 			$table->string('email');
 			$table->string('password');
+			$table->string('remember_token')->nullable();
 
 			$table->unique('email');
 			$table->index('password');
+			$table->index('remember_token');
 		});
 	}
 

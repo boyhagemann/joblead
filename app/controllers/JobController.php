@@ -4,7 +4,8 @@ class JobController extends \BaseController {
 
 	public function index()
 	{
-		$jobs = Job::all();
+		$jobs = API::get('api/jobs');
+
 		return View::make('jobs.index', compact('jobs'));
 	}
 

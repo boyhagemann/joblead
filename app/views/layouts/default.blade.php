@@ -23,10 +23,15 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                   <li><a href="{{ URL::route('jobs.index') }}">Jobs</a></li>
-                  <li><a href="#">Account</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">My account</a></li>
+				@if(Auth::check())
+					<li><a href="{{ URL::route('dashboard') }}">Dashboard</a></li>
+					<li><a href="{{ URL::route('account.logout') }}">Log out</a></li>
+				@else
+					<li><a href="{{ URL::route('account.login') }}">Login</a></li>
+					<li><a href="{{ URL::route('account.create') }}">Register</a></li>
+				@endif
                 </ul>
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

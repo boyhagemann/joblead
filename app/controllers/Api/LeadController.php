@@ -1,5 +1,9 @@
 <?php
 
+namespace Api;
+
+use Lead;
+
 class LeadController extends \BaseController {
 
 	public function create(Job $job)
@@ -19,9 +23,13 @@ class LeadController extends \BaseController {
 		return Redirect::route('jobs.show', $job->id);
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function index()
 	{
-		$leads = API::get('api/leads');
-		return View::make('leads.index', compact('leads'));
+		$q = Lead::query();
+
+		return $q->get();
 	}
 }
